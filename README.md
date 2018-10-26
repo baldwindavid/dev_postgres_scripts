@@ -26,6 +26,19 @@ Postgres Version Status (`pgstatusv` for verbose)
 9.6.3: Not running.
 ```
 
+#### `pgstart` - Start a version
+
+Start 10.5
+
+```
+> pgstart
+
+Postgres Version Status (`pgstatusv` for verbose)
+-----------------------
+10.5 (current): Running.
+9.6.3: Not running.
+```
+
 #### `pgstatusv` - View verbose status of all pg versions
 
 Verbose status will display the contents of the `postmaster.pid`. We can see that 10.5 is running on port 5432.
@@ -46,19 +59,6 @@ localhost
   5432001    196608
 ready
 
-9.6.3: Not running.
-```
-
-#### `pgstart` - Start a version
-
-Start 10.5
-
-```
-> pgstart
-
-Postgres Version Status (`pgstatusv` for verbose)
------------------------
-10.5 (current): Running.
 9.6.3: Not running.
 ```
 
