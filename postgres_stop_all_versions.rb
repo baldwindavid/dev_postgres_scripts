@@ -12,13 +12,13 @@ def stop_all_versions
   `asdf list postgres`.split.each do |version|
     current_version = `postgres -V`.split(" ").last
 
-    is_started = `[ -f /Users/baldwindavid/.asdf/installs/postgres/#{version}/data/postmaster.pid ] && echo "true"`
+    is_started = `[ -f ~/.asdf/installs/postgres/#{version}/data/postmaster.pid ] && echo "true"`
     is_started = is_started.chomp! == "true"
     is_current_version = version == current_version
 
     if is_started
       print(current_version, version, "Stopping.")
-      `pg_ctl -D /Users/baldwindavid/.asdf/installs/postgres/#{version}/data stop`
+      `pg_ctl -D ~/.asdf/installs/postgres/#{version}/data stop`
     else
       print(current_version, version, "Not running. Nothing to do.")
     end

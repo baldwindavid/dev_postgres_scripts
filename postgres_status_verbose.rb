@@ -12,11 +12,11 @@ def print_versions
   `asdf list postgres`.split.each do |version|
     current_version = `postgres -V`.split(" ").last
 
-    is_started = `[ -f /Users/baldwindavid/.asdf/installs/postgres/#{version}/data/postmaster.pid ] && echo "true"`
+    is_started = `[ -f ~/.asdf/installs/postgres/#{version}/data/postmaster.pid ] && echo "true"`
 
     if is_started.chomp! == "true"
       print(current_version, version, "Running.")
-      postmaster_path = "/Users/baldwindavid/.asdf/installs/postgres/#{version}/data/postmaster.pid"
+      postmaster_path = "~/.asdf/installs/postgres/#{version}/data/postmaster.pid"
       puts "Contents of " + postmaster_path
       puts `cat #{postmaster_path}`
     elsif version == current_version
